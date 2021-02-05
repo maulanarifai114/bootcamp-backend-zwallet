@@ -6,12 +6,14 @@ exports.search = (req, res) => {
     .then((result) => {
       const data = [];
       result.forEach((el) => {
-        data.push({
-          id: el.id,
-          name: `${el.firstName} ${el.lastName}`,
-          photo: el.photo,
-          phone: el.phone,
-        });
+        el.id !== `${process.env.ADMIN}`
+          ? data.push({
+              id: el.id,
+              name: `${el.firstName} ${el.lastName}`,
+              photo: el.photo,
+              phone: el.phone,
+            })
+          : console.log(`Excepted ${el.firstName} ${el.lastName}`);
       });
       return helper.response(res, data, 200, null);
     })
