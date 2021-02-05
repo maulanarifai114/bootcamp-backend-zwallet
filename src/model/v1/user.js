@@ -7,5 +7,10 @@ const user = {
       id
     );
   },
+  search: (keyword) => {
+    return actionQuery(
+      `SELECT * FROM users WHERE firstName LIKE '%${keyword}%' OR lastName LIKE '%${keyword}%'`
+    );
+  },
 };
 module.exports = user;
