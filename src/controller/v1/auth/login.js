@@ -28,6 +28,8 @@ exports.login = (req, res) => {
             401,
             "Your account is not registered"
           );
+        } else if (user.isVerified === "false") {
+          helper.response(res, null, 401, "Your account is not verified");
         } else {
           // Compare Password
           bcrypt.compare(password, user.password, function (err, check) {

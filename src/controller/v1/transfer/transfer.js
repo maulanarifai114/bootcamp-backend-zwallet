@@ -16,14 +16,19 @@ exports.transfer = (req, res) => {
     receiverId: req.body.receiverId,
     notes: req.body.notes,
     amount: req.body.amount,
-    date: req.body.date,
+    dateCreate: req.body.date,
   };
   transfer(data)
-    .then((result) => {
-      console.log(result);
-      helper.response(res, "Success Transfer", 200, null);
+    .then(() => {
+      senderBalance(data.amount, senderId)
+        .then(() => {
+          receiverBalance(data.amount, receiverId)
+            .then(() => {
+              helper.response(res, "Success Transfer", 200, null);
+            })
+            .catch((err) => helper.reject(res, err, 404, "Failed Transfer"));
+        })
+        .catch((err) => helper.reject(res, err, 404, "Failed Transfer"));
     })
     .catch((err) => helper.reject(res, err, 404, "Failed Transfer"));
-  senderBalance(data.amount, senderId);
-  receiverBalance(data.amount, receiverId);
 };

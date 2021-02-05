@@ -8,7 +8,7 @@ const {
 const { verifyAccess } = require("../../middleware/v1/verify");
 
 router
-  .post("/", verifyAccess, checkPin, transfer)
-  .get("/balance", verifyAccess, checkBalance);
+  .get("/balance", verifyAccess, checkBalance)
+  .post("/", verifyAccess, checkPin, transfer);
 
 module.exports = router;
