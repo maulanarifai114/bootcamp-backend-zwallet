@@ -20,8 +20,16 @@ const user = {
   updatePin: (pin, id) => {
     return actionQuery(`UPDATE users SET pin = '${pin}' WHERE id = '${id}'`);
   },
+  updatePassword: (password, id) => {
+    return actionQuery(
+      `UPDATE users SET password = '${password}' WHERE id = '${id}'`
+    );
+  },
   checkPin: (id) => {
     return actionQuery(`SELECT pin FROM users WHERE id = '${id}'`);
+  },
+  checkPassword: (id) => {
+    return actionQuery(`SELECT password FROM users WHERE id = '${id}'`);
   },
 };
 module.exports = user;

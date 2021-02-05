@@ -6,7 +6,9 @@ const {
   search,
   updatePhone,
   updatePin,
+  updatePassword,
   checkPin,
+  checkPassword,
 } = require("../../controller/v1/user");
 
 router
@@ -14,5 +16,6 @@ router
   .get("/search", verifyAccess, search)
   .patch("/phone", verifyAccess, updatePhone)
   .patch("/pin", verifyAccess, updatePin)
+  .patch("/password", verifyAccess, checkPassword, updatePassword)
   .get("/checkpin", verifyAccess, checkPin);
 module.exports = router;
