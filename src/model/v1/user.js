@@ -12,5 +12,10 @@ const user = {
       `SELECT * FROM users WHERE firstName LIKE '%${keyword}%' OR lastName LIKE '%${keyword}%'`
     );
   },
+  updatePhone: (phone, id) => {
+    return actionQuery(
+      `UPDATE users SET phone = '${phone}' WHERE id = '${id}'`
+    );
+  },
 };
 module.exports = user;
