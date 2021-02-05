@@ -18,9 +18,6 @@ const verify = {
           return helper.response(res, null, 401, "Token Expired");
         }
       } else {
-        console.log(decoded);
-        // const id = decoded.id;
-        // res.send(id);
         req.id = decoded.id;
         next();
       }

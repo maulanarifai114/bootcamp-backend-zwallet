@@ -7,8 +7,5 @@ const user = {
       id
     );
   },
-  transfer: (data) => {
-    return actionQuery("INSERT INTO transactions SET ?", data);
-  },
 };
 module.exports = user;
