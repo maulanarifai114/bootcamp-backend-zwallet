@@ -1,5 +1,6 @@
 const { newHistory, oldHistory } = require("../../../model/v1/history");
 const helper = require("../../../helper/v1/help");
+const moment = require("moment");
 
 exports.history = (req, res) => {
   const allData = [];
@@ -12,7 +13,7 @@ exports.history = (req, res) => {
               receiverId: el.receiverId,
               name: "",
               photo: "",
-              date: el.dateCreate,
+              date: moment(el.dateCreate).format().split("+07:00")[0],
               amount: el.amount,
             };
             if (req.query.id === el.senderId) {
