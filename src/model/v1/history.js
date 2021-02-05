@@ -39,5 +39,8 @@ const history = {
       `
     );
   },
+  deleteHistoryById: (id) => {
+    return actionQuery(`DELETE FROM transactions WHERE id = '${id}'`);
+  },
 };
 module.exports = history;
