@@ -7,7 +7,7 @@ exports.checkPin = (req, res, next) => {
       const pin = result[0].pin;
       const inputedPin = req.body.pin;
       pin !== inputedPin
-        ? helper.response(res, "Wrong PIN Number", 200, null)
+        ? helper.response(res, "Wrong PIN Number", 401, null)
         : next();
     })
     .catch((err) => {

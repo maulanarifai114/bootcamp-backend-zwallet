@@ -17,5 +17,11 @@ const user = {
       `UPDATE users SET phone = '${phone}' WHERE id = '${id}'`
     );
   },
+  updatePin: (pin, id) => {
+    return actionQuery(`UPDATE users SET pin = '${pin}' WHERE id = '${id}'`);
+  },
+  checkPin: (id) => {
+    return actionQuery(`SELECT pin FROM users WHERE id = '${id}'`);
+  },
 };
 module.exports = user;
