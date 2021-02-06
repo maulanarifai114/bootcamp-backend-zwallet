@@ -25,6 +25,14 @@ const user = {
       `UPDATE users SET password = '${password}' WHERE id = '${id}'`
     );
   },
+  updatePhoto: (photo, id) => {
+    return actionQuery(
+      `UPDATE users SET photo = '${photo}' WHERE id = '${id}'`
+    );
+  },
+  deletePhoto: (id) => {
+    return actionQuery(`SELECT photo FROM users WHERE id = '${id}'`);
+  },
   checkPin: (id) => {
     return actionQuery(`SELECT pin FROM users WHERE id = '${id}'`);
   },

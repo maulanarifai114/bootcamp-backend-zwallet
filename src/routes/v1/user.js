@@ -7,8 +7,10 @@ const {
   updatePhone,
   updatePin,
   updatePassword,
+  updatePhoto,
   checkPin,
   checkPassword,
+  checkImage,
 } = require("../../controller/v1/user");
 
 router
@@ -17,5 +19,6 @@ router
   .patch("/phone", verifyAccess, updatePhone)
   .patch("/pin", verifyAccess, updatePin)
   .patch("/password", verifyAccess, checkPassword, updatePassword)
-  .get("/checkpin", verifyAccess, checkPin);
+  .get("/checkpin", verifyAccess, checkPin)
+  .patch("/photo", verifyAccess, checkImage, updatePhoto);
 module.exports = router;
