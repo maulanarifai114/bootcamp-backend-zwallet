@@ -8,6 +8,9 @@ const auth = {
   },
   insertUser: (data) => {
     return actionQuery('INSERT INTO users SET ?', data)
-  }
+  },
+  activate: (id) => {
+    return actionQuery(`UPDATE users SET isVerified = 'true' WHERE id = '${id}'`);
+  },
 }
 module.exports = auth
