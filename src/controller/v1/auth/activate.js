@@ -12,6 +12,6 @@ exports.activate = (req, res) => {
       );
     })
     .catch((err) => {
-      helper.response(res, null, 401, err);
+      helper.reject(res, null, 401, err);
     });
 };

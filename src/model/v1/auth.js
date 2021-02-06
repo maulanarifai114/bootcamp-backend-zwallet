@@ -12,5 +12,8 @@ const auth = {
   activate: (id) => {
     return actionQuery(`UPDATE users SET isVerified = 'true' WHERE id = '${id}'`);
   },
+  first: (id) => {
+    return actionQuery(`UPDATE users SET firstTime = 'false' WHERE id = '${id}'`);
+  },
 }
 module.exports = auth

@@ -59,7 +59,7 @@ exports.login = (req, res) => {
       })
       .catch((err) => {
         console.log("error checking user", err);
-        return helper.response(res, null, 400, err);
+        return helper.reject(res, null, 400, err);
       });
   }
 };

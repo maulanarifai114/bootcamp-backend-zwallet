@@ -82,7 +82,7 @@ exports.signup = (req, res) => {
       })
       .catch((err) => {
         console.log("database error", err);
-        return helper.response(res, "database error", 400, err);
+        return helper.reject(res, "database error", 400, err);
       });
   }
 };
