@@ -59,7 +59,7 @@ exports.signup = (req, res) => {
                   const secret = process.env.SECRET_KEY;
                   const getToken = (err, token) => {
                     console.log("error get token =", err);
-                    emailer.sendEmail(firstName, email, token);
+                    emailer.sendEmail(firstName, email, token, id);
                   };
                   jwt.sign(payload, secret, option, getToken);
                   return helper.response(

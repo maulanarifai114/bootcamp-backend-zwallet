@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-exports.sendEmail = (firstName, email, token) => {
+exports.sendEmail = (firstName, email, token, id) => {
   return new Promise((resolve, reject) => {
     const message = {
       from: `"Zwallet Team" <${process.env.EMAIL_USERNAME}>`,
@@ -32,7 +32,7 @@ exports.sendEmail = (firstName, email, token) => {
         </style>
       </head>
       <body>
-        ${body(firstName, token)}
+        ${body(firstName, token, id)}
       </body>
       </html>`,
     };
