@@ -20,6 +20,7 @@ router
   .patch("/phone", verifyAccess, updatePhone)
   .patch("/pin", verifyAccess, updatePin)
   .patch("/password", verifyAccess, checkPassword, updatePassword)
+  .patch("/reset", verifyAccess, updatePassword)
   .get("/checkpin", verifyAccess, checkPin)
   .patch("/photo", verifyAccess, checkImage, updatePhoto)
   .get("/", verifyAccess, getUser)
