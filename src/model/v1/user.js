@@ -1,6 +1,11 @@
 const { actionQuery } = require("../../helper/v1/help");
 
 const user = {
+  getUser: (id) => {
+    return actionQuery(
+      `SELECT * FROM users WHERE id = '${id}'`
+    );
+  },
   getAllUser: (id) => {
     return actionQuery(
       "SELECT * FROM users WHERE (id != 'fb1b35a1-2ec2-4828-bb35-033930554214' AND id != ?)",

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { verifyAccess } = require("../../middleware/v1/verify");
 const {
+  getUser,
   getAllUser,
   search,
   updatePhone,
@@ -20,5 +21,6 @@ router
   .patch("/pin", verifyAccess, updatePin)
   .patch("/password", verifyAccess, checkPassword, updatePassword)
   .get("/checkpin", verifyAccess, checkPin)
-  .patch("/photo", verifyAccess, checkImage, updatePhoto);
+  .patch("/photo", verifyAccess, checkImage, updatePhoto)
+  .get("/", verifyAccess, getUser)
 module.exports = router;

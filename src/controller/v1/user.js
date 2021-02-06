@@ -1,3 +1,4 @@
+const { getUser } = require("./user/getUser");
 const { getAllUser } = require("./user/getAllUser");
 const { search } = require("./user/search");
 const { updatePhone } = require("./user/updatePhone");
@@ -9,6 +10,7 @@ const { checkPassword } = require("./user/checkPassword");
 const { checkImage } = require("../../middleware/v1/checkImage");
 
 const user = {
+  getUser,
   getAllUser,
   search,
   updatePhone,
