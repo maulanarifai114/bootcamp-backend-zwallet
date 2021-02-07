@@ -4,6 +4,7 @@ const { verifyAccess } = require("../../middleware/v1/verify");
 const {
   getUser,
   getAllUser,
+  getAllUserLimit,
   search,
   updatePhone,
   updatePin,
@@ -16,6 +17,7 @@ const {
 
 router
   .get("/alluser", verifyAccess, getAllUser)
+  .get("/alluserlimit", verifyAccess, getAllUserLimit)
   .get("/search", verifyAccess, search)
   .patch("/phone", verifyAccess, updatePhone)
   .patch("/pin", verifyAccess, updatePin)

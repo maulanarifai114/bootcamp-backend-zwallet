@@ -8,8 +8,13 @@ const user = {
   },
   getAllUser: (id) => {
     return actionQuery(
-      "SELECT * FROM users WHERE (id != 'fb1b35a1-2ec2-4828-bb35-033930554214' AND id != ?) ORDER BY createAt DESC",
+      "SELECT * FROM users WHERE (id != 'fb1b35a1-2ec2-4828-bb35-033930554214' AND id != ?) ORDER BY createAt DESC LIMIT 4",
       id
+    );
+  },
+  getAllUserLimit: (id, date) => {
+    return actionQuery(
+      `SELECT * FROM users WHERE (id != 'fb1b35a1-2ec2-4828-bb35-033930554214' AND id != '${id}') AND createAt < '${date}' ORDER BY createAt DESC LIMIT 4`,
     );
   },
   search: (keyword, id) => {
