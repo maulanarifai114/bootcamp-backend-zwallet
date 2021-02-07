@@ -16,11 +16,11 @@ const history = {
       INNER JOIN users AS sender ON trans.senderId = sender.id
       WHERE trans.senderId = '${id}' 
       OR trans.receiverId = '${id}'
-      ORDER BY trans.dateCreate DESC LIMIT 7
+      ORDER BY trans.dateCreate DESC LIMIT 6
       `
     );
   },
-  newHistoryLimit: (id) => {
+  newHistoryLimit: (id, date) => {
     return actionQuery(
       `
       SELECT trans.*,
@@ -35,7 +35,7 @@ const history = {
       INNER JOIN users AS sender ON trans.senderId = sender.id
       WHERE (trans.senderId = '${id}' AND trans.dateCreate < '${date}')
       OR (trans.receiverId = '${id}' AND trans.dateCreate < '${date}')
-      ORDER BY trans.dateCreate DESC LIMIT 7
+      ORDER BY trans.dateCreate DESC LIMIT 6
       `
     );
   },
@@ -54,11 +54,11 @@ const history = {
       INNER JOIN users AS sender ON trans.senderId = sender.id
       WHERE trans.senderId = '${id}' 
       OR trans.receiverId = '${id}'
-      ORDER BY trans.dateCreate ASC LIMIT 7
+      ORDER BY trans.dateCreate ASC LIMIT 6
       `
     );
   },
-  oldHistoryLimit: (id) => {
+  oldHistoryLimit: (id, date) => {
     return actionQuery(
       `
       SELECT trans.*,
@@ -73,7 +73,7 @@ const history = {
       INNER JOIN users AS sender ON trans.senderId = sender.id
       WHERE (trans.senderId = '${id}' AND trans.dateCreate > '${date}')
       OR (trans.receiverId = '${id}' AND trans.dateCreate > '${date}')
-      ORDER BY trans.dateCreate ASC LIMIT 7
+      ORDER BY trans.dateCreate ASC LIMIT 6
       `
     );
   },

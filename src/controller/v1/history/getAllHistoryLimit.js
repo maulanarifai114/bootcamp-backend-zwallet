@@ -1,11 +1,11 @@
-const { newHistory, oldHistory } = require("../../../model/v1/history");
+const { newHistoryLimit, oldHistoryLimit } = require("../../../model/v1/history");
 const helper = require("../../../helper/v1/help");
 const moment = require("moment");
 
-exports.history = (req, res) => {
+exports.historyLimit = (req, res) => {
   const allData = [];
   req.query.sort === "new"
-    ? newHistory(req.query.id)
+    ? newHistoryLimit(req.query.id, req.query.date)
         .then((result) => {
           result.forEach((el) => {
             const data = {
@@ -30,7 +30,7 @@ exports.history = (req, res) => {
         .catch((err) => {
           helper.reject(res, null, 200, err);
         })
-    : oldHistory(req.query.id)
+    : oldHistoryLimit(req.query.id, req.query.date)
         .then((result) => {
           result.forEach((el) => {
             const data = {
