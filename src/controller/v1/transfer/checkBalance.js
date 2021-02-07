@@ -7,7 +7,7 @@ exports.checkBalance = (req, res) => {
   checkBalance(id)
     .then((result) => {
       const balance = result[0].balance;
-      amount < balance
+      amount <= balance
         ? helper.response(res, "Sufficient Balance", 200, null)
         : helper.response(res, "The Balance Is Not Sufficient", 200, null);
     })
