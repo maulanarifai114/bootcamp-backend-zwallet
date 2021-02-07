@@ -12,9 +12,9 @@ const user = {
       id
     );
   },
-  search: (keyword) => {
+  search: (keyword, id) => {
     return actionQuery(
-      `SELECT * FROM users WHERE firstName LIKE '%${keyword}%' OR lastName LIKE '%${keyword}%'`
+      `SELECT * FROM users WHERE firstName LIKE '%${keyword}%' AND id != '${id}' OR lastName LIKE '%${keyword}%' AND id != '${id}'`
     );
   },
   updatePhone: (phone, id) => {

@@ -2,7 +2,7 @@ const { search } = require("../../../model/v1/user");
 const helper = require("../../../helper/v1/help");
 
 exports.search = (req, res) => {
-  search(req.query.keyword)
+  search(req.query.keyword, req.id)
     .then((result) => {
       const data = [];
       result.forEach((el) => {
