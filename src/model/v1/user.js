@@ -8,13 +8,13 @@ const user = {
   },
   getAllUser: (id) => {
     return actionQuery(
-      "SELECT * FROM users WHERE (id != 'fb1b35a1-2ec2-4828-bb35-033930554214' AND id != ?)",
+      "SELECT * FROM users WHERE (id != 'fb1b35a1-2ec2-4828-bb35-033930554214' AND id != ?) ORDER BY createAt DESC",
       id
     );
   },
   search: (keyword, id) => {
     return actionQuery(
-      `SELECT * FROM users WHERE firstName LIKE '%${keyword}%' AND id != '${id}' OR lastName LIKE '%${keyword}%' AND id != '${id}'`
+      `SELECT * FROM users WHERE firstName LIKE '%${keyword}%' AND id != '${id}' OR lastName LIKE '%${keyword}%' AND id != '${id}' ORDER BY createAt DESC`
     );
   },
   updatePhone: (phone, id) => {
