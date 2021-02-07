@@ -9,6 +9,7 @@ exports.historyLimit = (req, res) => {
         .then((result) => {
           result.forEach((el) => {
             const data = {
+              id: el.id,
               senderId: el.senderId,
               receiverId: el.receiverId,
               name: "",
@@ -34,6 +35,7 @@ exports.historyLimit = (req, res) => {
         .then((result) => {
           result.forEach((el) => {
             const data = {
+              id: el.id,
               senderId: el.senderId,
               receiverId: el.receiverId,
               name: "",
