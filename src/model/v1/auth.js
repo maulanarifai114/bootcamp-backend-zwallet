@@ -10,10 +10,10 @@ const auth = {
     return actionQuery('INSERT INTO users SET ?', data)
   },
   activate: (id) => {
-    return actionQuery(`UPDATE users SET isVerified = 'true' WHERE id = '${id}'`);
+    return actionQuery(`UPDATE users SET isVerified = 'true' WHERE id = '${id}'`)
   },
   first: (id) => {
-    return actionQuery(`UPDATE users SET firstTime = 'false' WHERE id = '${id}'`);
-  },
+    return actionQuery(`UPDATE users SET firstTime = 'false' WHERE id = '${id}'`)
+  }
 }
 module.exports = auth

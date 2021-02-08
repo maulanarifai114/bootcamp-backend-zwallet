@@ -12,7 +12,7 @@ const body = {
         </div>
       </a>
     </div>
-    `;
-  },
-};
-module.exports = body;
+    `
+  }
+}
+module.exports = body

@@ -1,4 +1,4 @@
-const { actionQuery } = require("../../helper/v1/help");
+const { actionQuery } = require('../../helper/v1/help')
 
 const history = {
   newHistory: (id) => {
@@ -18,7 +18,7 @@ const history = {
       OR trans.receiverId = '${id}'
       ORDER BY trans.dateCreate DESC LIMIT 6
       `
-    );
+    )
   },
   newHistoryLimit: (id, date) => {
     return actionQuery(
@@ -37,7 +37,7 @@ const history = {
       OR (trans.receiverId = '${id}' AND trans.dateCreate < '${date}')
       ORDER BY trans.dateCreate DESC LIMIT 6
       `
-    );
+    )
   },
   oldHistory: (id) => {
     return actionQuery(
@@ -56,7 +56,7 @@ const history = {
       OR trans.receiverId = '${id}'
       ORDER BY trans.dateCreate ASC LIMIT 6
       `
-    );
+    )
   },
   oldHistoryLimit: (id, date) => {
     return actionQuery(
@@ -75,10 +75,10 @@ const history = {
       OR (trans.receiverId = '${id}' AND trans.dateCreate > '${date}')
       ORDER BY trans.dateCreate ASC LIMIT 6
       `
-    );
+    )
   },
   deleteHistoryById: (id) => {
-    return actionQuery(`DELETE FROM transactions WHERE id = '${id}'`);
-  },
-};
-module.exports = history;
+    return actionQuery(`DELETE FROM transactions WHERE id = '${id}'`)
+  }
+}
+module.exports = history

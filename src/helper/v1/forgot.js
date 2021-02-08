@@ -1,23 +1,23 @@
-const nodemailer = require("nodemailer");
-const { bodyForgotPassword } = require("../../../html/forgot");
-const { fonts } = require("../../../html/fontEmail");
-const { resetStyle } = require("../../../html/resetStyle");
-const { style } = require("../../../html/style");
+const nodemailer = require('nodemailer')
+const { bodyForgotPassword } = require('../../../html/forgot')
+const { fonts } = require('../../../html/fontEmail')
+const { resetStyle } = require('../../../html/resetStyle')
+const { style } = require('../../../html/style')
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  service: 'gmail',
   auth: {
     user: process.env.EMAIL_USERNAME, // generated ethereal user
-    pass: process.env.EMAIL_PASSWORD, // generated ethereal password
-  },
-});
+    pass: process.env.EMAIL_PASSWORD // generated ethereal password
+  }
+})
 
 exports.sendEmail = (firstName, email, token, id) => {
   return new Promise((resolve, reject) => {
     const message = {
       from: `"Zwallet Team" <${process.env.EMAIL_USERNAME}>`,
       to: `${email}`,
-      subject: "Change Password",
+      subject: 'Change Password',
       html: `
       <!DOCTYPE html>
       <html lang="en">
@@ -34,14 +34,14 @@ exports.sendEmail = (firstName, email, token, id) => {
       <body>
         ${bodyForgotPassword(firstName, token, id)}
       </body>
-      </html>`,
-    };
+      </html>`
+    }
     transporter.sendMail(message, (error, info) => {
       if (error) {
-        reject(error);
+        reject(error)
       } else {
-        resolve(info);
+        resolve(info)
       }
-    });
-  });
-};
+    })
+  })
+}
