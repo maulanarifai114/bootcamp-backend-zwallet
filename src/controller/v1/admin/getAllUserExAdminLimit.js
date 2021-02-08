@@ -1,9 +1,9 @@
-const { getAllUserExAdmin } = require("../../../model/v1/admin");
+const { getAllUserExAdminLimit } = require("../../../model/v1/admin");
 const helper = require("../../../helper/v1/help");
 
-exports.getAllUserExAdmin = (req, res) => {
+exports.getAllUserExAdminLimit = (req, res) => {
   if (req.id === process.env.ADMIN) {
-    getAllUserExAdmin()
+    getAllUserExAdminLimit(req.query.date)
       .then((result) => helper.response(res, result, 200, null))
       .catch((err) => helper.reject(res, null, 404, err));
   } else {
