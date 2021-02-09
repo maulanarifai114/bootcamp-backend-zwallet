@@ -28,7 +28,7 @@ exports.forgoted = (req, res) => {
       }
       jwt.sign(payload, secret, option, getToken)
     })
-    .catch(() => {
-      helper.reject(res, null, 404, 'Email is not registered')
+    .catch((err) => {
+      helper.reject(res, null, 404, {err, msg: 'Email is not registered'})
     })
 }
