@@ -1,7 +1,4 @@
 <h1 align="center">Zwallet API</h1>
-<p align="center">
-  <img width="250" src="./screenshots/logo.png"/>
-</p>
 
 <p align="center">
   <a href="https://nodejs.org/" target="blank">
