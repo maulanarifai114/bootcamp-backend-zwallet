@@ -46,15 +46,15 @@ EMAIL_PASSWORD = YOUR_EMAIL_PASSWORD
 ADMIN = YOUR_ADMIN_ID
 ```
 
-### Run the App
+## Run the App
 
-#### Development Mode
+### Development Mode
 
 ```
 npm run dev
 ```
 
-#### Production Mode
+### Production Mode
 
 ```
 npm run start
