@@ -4,17 +4,26 @@ const { fonts } = require('../../../html/fontEmail')
 const { resetStyle } = require('../../../html/resetStyle')
 const { style } = require('../../../html/style')
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USERNAME, // generated ethereal user
-    pass: process.env.EMAIL_PASSWORD // generated ethereal password
-  }
-})
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     user: process.env.EMAIL_USERNAME, // generated ethereal user
+//     pass: process.env.EMAIL_PASSWORD // generated ethereal password
+//   }
+// })
 
-exports.sendEmail = (firstName, email, token, id) => {
+exports.sendEmail = async (firstName, email, token, id) => {
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL_USERNAME, // generated ethereal user
+      pass: process.env.EMAIL_PASSWORD // generated ethereal password
+    }
+  })
   return new Promise((resolve, reject) => {
     const message = {
       from: `"Zwallet Team" <${process.env.EMAIL_USERNAME}>`,
@@ -38,7 +47,7 @@ exports.sendEmail = (firstName, email, token, id) => {
       </body>
       </html>`
     }
-    transporter.sendMail(message, (error, info) => {
+    await transporter.sendMail(message, (error, info) => {
       if (error) {
         reject(error)
       } else {
