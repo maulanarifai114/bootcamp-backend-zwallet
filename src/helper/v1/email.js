@@ -24,7 +24,7 @@ exports.sendEmail = async (firstName, email, token, id) => {
       pass: process.env.EMAIL_PASSWORD // generated ethereal password
     }
   })
-  return new Promise((resolve, reject) => {
+  return new Promise( async (resolve, reject) => {
     const message = {
       from: `"Zwallet Team" <${process.env.EMAIL_USERNAME}>`,
       to: `${email}`,
