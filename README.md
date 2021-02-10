@@ -48,8 +48,16 @@ ADMIN = YOUR_ADMIN_ID
 
 ### Run the App
 
+#### Development Mode
+
 ```
 npm run dev
+```
+
+#### Production Mode
+
+```
+npm run start
 ```
 
 ## Postman Collections
