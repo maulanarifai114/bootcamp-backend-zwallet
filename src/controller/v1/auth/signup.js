@@ -60,6 +60,14 @@ exports.signup = (req, res) => {
                   const getToken = (err, token) => {
                     console.log('error get token =', err)
                     emailer.sendEmail(firstName, email, token, id)
+                      .then((result) => {
+                        console.log(result)
+                        helper.response(res, 'Check Your Email Now!', 200, null)
+                      })
+                      .catch((err) => {
+                        console.log(err)
+                        helper.reject(res, null, 404, err)
+                      })
                   }
                   jwt.sign(payload, secret, option, getToken)
                   return helper.response(

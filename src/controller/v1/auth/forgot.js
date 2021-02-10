@@ -16,10 +16,12 @@ exports.forgoted = (req, res) => {
       const getToken = (err, token) => {
         if (!err) {
           sendEmail(firstName, email, token, id)
-            .then(() => {
+            .then((result) => {
+              console.log(result)
               helper.response(res, 'Check Your Email Now!', 200, null)
             })
             .catch((err) => {
+              console.log(err)
               helper.reject(res, null, 404, err)
             })
         } else {
